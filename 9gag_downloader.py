@@ -1,5 +1,5 @@
 # @filename:9gag_downloader.py
-# @usage: python 9gag_downloaded.py
+# @usage: python 9gag_downloader.py
 # @author: YedaAnna
 # @description: Downloads images from the 9gag.com Girl section 
 # @version: 1.0 
