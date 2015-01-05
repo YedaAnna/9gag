@@ -19,8 +19,7 @@ def list_images():
 	base_contents=urllib2.urlopen(final_next_link).read()
 	temp_file=open('temp_html.txt', 'w' )
 	nextpage=open('nextpage.txt', 'w')
-	html=base_contents
-	parsed_html = BeautifulSoup(html)
+	parsed_html = BeautifulSoup(base_contents)
 	img=parsed_html.find_all('img')
 	nextpage_link=parsed_html.find_all("a", "btn badge-load-more-post")
 	for index in nextpage_link:
