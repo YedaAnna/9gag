@@ -45,6 +45,7 @@ def find_links():
 				nextlink=nextlink.replace('">Load', '')
 			final_next_link=base_link+nextlink
 			list_images()
+			new_link.close()
 
 def download_images():	
 	read_file=open('temp_html.txt', 'r')
