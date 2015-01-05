@@ -9,7 +9,7 @@ Typically a page has about 8-10 images on it
 
 The script will also rename the images to match the title of the image post
 
-If you want to download the images from another section just change the 'base_link' in main script 
+The script can be modified to download images from other sections as well
 
 Any improvements, suggestions are most welcome
 
