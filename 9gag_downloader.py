@@ -11,34 +11,32 @@ from bs4 import BeautifulSoup
 import urllib
 import time
 global base_link
-global m
+global page_input
 start=time.time()
 base_link="http://9gag.com/girl/"
 
-def images():
+def list_images():
 	base_contents=urllib2.urlopen(final_next_link).read()
-	a=[]
-	b=[]
 	temp_file=open('temp_html.txt', 'w' )
 	nextpage=open('nextpage.txt', 'w')
 	html=base_contents
 	parsed_html = BeautifulSoup(html)
 	img=parsed_html.find_all('img')
-	b=parsed_html.find_all("a", "btn badge-load-more-post")
-	for index in b:
+	nextpage_link=parsed_html.find_all("a", "btn badge-load-more-post")
+	for index in nextpage_link:
 		nextpage.write(str(index)+"\n")
 	for index in img:
 		temp_file.write(str(index)+"\n")
 	temp_file.close()
 	nextpage.close() 
-	process()
+	download_images()
 
-def links():
-	for n in range(1,m+1):
+def find_links():
+	for n in range(1,page_input+1):
 		global final_next_link
 		if n ==1:
 			final_next_link= base_link
-			images()
+			list_images()
 		else:
 			new_link=open('nextpage.txt','r')
 			for lines in new_link:
@@ -47,9 +45,9 @@ def links():
 				nextlink=nextlink.replace('href="/girl/','')
 				nextlink=nextlink.replace('">Load', '')
 			final_next_link=base_link+nextlink
-			images()
+			list_images()
 
-def process():	
+def download_images():	
 	read_file=open('temp_html.txt', 'r')
 	name=[]
 	url=[]
@@ -76,15 +74,15 @@ def process():
 		urllib.urlretrieve(new_url[k], (new_name[k] +'.jpg'))
 	read_file.close() 
 
-print "Please enter no of pages to download"
-m=int(input())
+print "Please enter number of pages to download"
+page_input=int(input())
 
 if os.path.exists(os.getcwd()+'/9gag_images/'):
 	os.chdir(os.getcwd()+ '/9gag_images/')
 else:	
 	os.makedirs(os.getcwd()+'/9gag_images/')
 	os.chdir(os.getcwd()+'/9gag_images/')	
-links()
+find_links()
 os.remove('temp_html.txt')
 os.remove('nextpage.txt')
 print "End of Program :)"
