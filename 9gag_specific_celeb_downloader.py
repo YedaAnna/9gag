@@ -2,8 +2,8 @@
 # @usage: python 9gag_specific_celeb_downloader.py
 # @author: YedaAnna
 # @description: Downloads specifed celebrity images from the 9gag.com Girl section
-# @version: 2.0
-# @date: Monday Jan 05 2015
+# @version: 1.0
+# @date: Thursday Jan 08 2015
 import os
 import urllib2
 from bs4 import BeautifulSoup
@@ -72,6 +72,9 @@ page_input = int(input())
 if not os.path.exists(os.getcwd() + '/9gag_images/'):
     os.makedirs(os.getcwd() + '/9gag_images/')
 os.chdir(os.getcwd() + '/9gag_images/')
+if not os.path.exists(os.getcwd()+'/'+celeb):
+    os.makedirs(os.getcwd()+'/'+celeb)
+os.chdir(os.getcwd()+'/'+celeb)
 find_links()
 print "End of Program :)"
 print "Time taken: " + str(time.time() - start)
