@@ -1,7 +1,7 @@
 9gag image downloader scripts
 ====
 
-1. 9gag_downloader.py
+1) 9gag_downloader.py
 
 This script downloads images from the specified 9gag section(default is 'Girl' section)
 
@@ -11,9 +11,9 @@ Typically a page has about 8-10 images on it
 
 The script will also rename the images to match the title of the image post
 
-2. 9gag_specific_celeb_downloader.py
+2) 9gag_specific_celeb_downloader.py
 
-This script will search for the desired celeb (default is Emma Watson.. obviously :)
+This script will search for the desired celeb (default is Emma Watson... obviously :) )
 
 The user specifies the number of pages to search 
 
