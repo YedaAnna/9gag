@@ -23,7 +23,8 @@ The script Downloads only those images that match the searched celebrity
 
 The script uses [Beautiful Soup 4](http://www.crummy.com/software/BeautifulSoup/bs4/doc/#) module
 
-If it is not installed, you can install it by via terminal
+If it is not installed, you can install it via terminal
+
 $ pip install beautifulsoup4
 
 Any improvements, suggestions are most welcome
