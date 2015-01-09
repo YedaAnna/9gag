@@ -1,5 +1,5 @@
 # @filename:9gag_specific_celeb_downloader.py
-# @usage: python 9gag_specific_celeb_downloader.py
+# @usage: python 9gag_specific_celeb_downloader.py celeb name
 # @author: YedaAnna
 # @description: Downloads specifed celebrity images from the 9gag.com Girl section
 # @version: 1.0
@@ -17,10 +17,14 @@ start = time.time()
 # to download from other sections, change the section name ex '/cosplay'
 section = '/girl'
 base_link = "http://9gag.com"
-# change celeb to name of desired celebrity Ex Olivia Wilde or simply Emma
+# usage example : python 9gag_specific_celeb_downloader.py Olivia Wilde
+# if no command line argument is given the script will search for Emma Watson
 # watch out for typos & Letter cases,
 # Generally the first letter of bothwords is in Upper case
-celeb = 'Emma Watson'
+if len(sys.argv) > 1:
+    celeb = ' '.join(sys.argv[1:3])
+else:
+    celeb = 'Emma Watson'
 j = 0
 
 
@@ -72,9 +76,9 @@ page_input = int(input())
 if not os.path.exists(os.getcwd() + '/9gag_images/'):
     os.makedirs(os.getcwd() + '/9gag_images/')
 os.chdir(os.getcwd() + '/9gag_images/')
-if not os.path.exists(os.getcwd()+'/'+celeb):
-    os.makedirs(os.getcwd()+'/'+celeb)
-os.chdir(os.getcwd()+'/'+celeb)
+if not os.path.exists(os.getcwd() + '/' + celeb):
+    os.makedirs(os.getcwd() + '/' + celeb)
+os.chdir(os.getcwd() + '/' + celeb)
 find_links()
 print "End of Program :)"
-print "Time taken: " + str(time.time() - start)
+print "Time taken: " + str(time.time() - start) + " seconds"
